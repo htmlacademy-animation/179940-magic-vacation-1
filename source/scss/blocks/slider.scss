@@ -65,6 +65,24 @@
   }
 }
 
+.swiper-slide-active,
+.swiper-slide-next {
+  .slider__item-text {
+    opacity: 0;
+    transform: translateX(20px);
+    animation-name: fadeInLeft;
+    animation-duration: $anim-s;
+    animation-delay: $anim-xs;
+    animation-fill-mode: forwards;
+  }
+}
+
+.swiper-slide-next {
+  .slider__item-text {
+    animation-delay: $anim-s + $anim-xs;
+  }
+}
+
 .slider__item-title {
   margin: 0 0 0 -5.5rem;
   text-transform: uppercase;
@@ -274,5 +292,16 @@
       height: 0.4rem;
       background-color: $c-light;
     }
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0px);
   }
 }
