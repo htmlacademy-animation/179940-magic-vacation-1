@@ -5,6 +5,12 @@
     .social-block__list {
       opacity: 1;
       pointer-events: auto;
+
+      .social-block__link {
+        animation-name: fadeInSocialLinks;
+        animation-duration: $anim-xl;
+        animation-fill-mode: forwards;
+      }
     }
   }
 }
@@ -35,6 +41,8 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition-property: width, height, background-color;
+    transition-duration: $anim-s;
   }
 
   svg {
@@ -168,6 +176,9 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  transition: color $anim-s, border-color $anim-s, background-color $anim-s;
+  opacity: 0;
+  transform: translateY(5px);
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -207,6 +218,8 @@
   }
 
   &--fb {
+    animation-delay: 0s;
+
     svg {
       width: 0.8rem;
       height: 1.7rem;
@@ -219,6 +232,8 @@
   }
 
   &--insta {
+    animation-delay: 0.2s;
+
     svg {
       width: 1.5rem;
       height: 1.5rem;
@@ -231,6 +246,8 @@
   }
 
   &--vk {
+    animation-delay: 0.4s;
+
     svg {
       width: 1.7rem;
       height: 1rem;
@@ -240,5 +257,16 @@
         height: 10px;
       }
     }
+  }
+}
+
+@keyframes fadeInSocialLinks {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0px);
   }
 }
