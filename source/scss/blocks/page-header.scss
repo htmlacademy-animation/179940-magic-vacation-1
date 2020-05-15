@@ -3,6 +3,10 @@ body.loaded {
     opacity: 1;
     pointer-events: auto;
   }
+
+  .page-header__logo {
+    transform: translateX(0px);
+  }
 }
 
 .page-header {
@@ -45,6 +49,8 @@ body.loaded {
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
+  transform: translateX(-20px);
+  transition: transform $anim-s $load-timing-function;
 
   @media (min-width: $stop-scaling) {
     top: -5px;
