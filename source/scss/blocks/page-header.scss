@@ -5,7 +5,14 @@ body.loaded {
   }
 
   .page-header__logo {
+    opacity: 1;
     transform: translateX(0px);
+  }
+
+  .page-header__menu .active::after {
+    transform: scaleX(1);
+    transform-origin: top left;
+    opacity: 1;
   }
 }
 
@@ -50,7 +57,9 @@ body.loaded {
   width: 10rem;
   color: $c-light;
   transform: translateX(-20px);
-  transition: transform $anim-s $load-timing-function;
+  opacity: 0;
+  transition: transform $anim-s $load-timing-function,
+    opacity $anim-s $load-timing-function;
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -280,12 +289,6 @@ body.loaded {
         left: 0;
         right: 0;
         background-color: $c-dark;
-      }
-    }
-
-    &.active {
-      &::after {
-        transform: scaleX(1);
       }
     }
 
